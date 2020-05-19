@@ -17,11 +17,11 @@ const NavbarMain = () => (
                 <NavDropdown title="Actions" id="basic-nav-dropdown">
                     <NavDropdown.Item href="#">View Courses</NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                    <NavDropdown.Item href="/HcadDataList">HCAD Records</NavDropdown.Item>
                 </NavDropdown>
                 
                 <Nav.Link href="#link">About Us</Nav.Link>
-                <Nav.Link href="/Login">Login</Nav.Link>
+                <Nav.Link href="/">Login</Nav.Link>
                 </Nav>
                 <Form inline>
                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />

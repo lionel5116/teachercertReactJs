@@ -10,6 +10,7 @@ import {store} from './store/store';
 
 import login from './container/login/login';
 import teacher from './components/teacher/teacher';
+import HcadData from './components/hcadrecordlist/hcadrecordlist';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
            <NavbarMain />
            <Route exact path='/' component={login} />
            <Route exact path='/Teacher' component={teacher} />
+           <Route exact path='/HcadDataList' component={HcadData} />
          </Provider>
        </div>
       </BrowserRouter>
