@@ -1,5 +1,5 @@
 import React from "react";
-import {ListGroup,Form,Button,Container} from 'react-bootstrap';
+import {ListGroup,Form,Container} from 'react-bootstrap';
 import uniqueid from 'uniqid'
 import axios from 'axios';
 
@@ -17,7 +17,7 @@ class HcadData extends React.Component {
             let lstHcadRecordData = [];
             lstHcadRecordData = res.data
            
-            console.log(lstHcadRecordData);
+            //console.log(lstHcadRecordData);
             let HcadRecords = lstHcadRecordData.map(hcadRecItem =><ListGroup.Item key={uniqueid()} 
               action  onClick={() => this.selectHcadRecordItem(hcadRecItem.AcctNumb)}>
               Acct#: {hcadRecItem.AcctNumb} <br /> 
