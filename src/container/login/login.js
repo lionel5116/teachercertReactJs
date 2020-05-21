@@ -4,7 +4,8 @@ import "./login.css";
 import { Form, Container, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import Reusablebutton from "../../components/reusablebutton/reusablebutton";
-import Logger from "../../components/logger/ogger";
+import Logger from "../../components/logger/logger";
+import GenericHeader from "../../components/GenericHeader/GenericHeader";
 
 class Login extends React.Component {
   state = {
@@ -19,7 +20,7 @@ class Login extends React.Component {
         <Container className="centerContainerContent col-md-3">
           <Form>
             <Form.Group controlId="environment">
-              <h2>Login Screen</h2>
+              <GenericHeader headertext="Awesome Login Screen" />
             </Form.Group>
 
             <Form.Group controlId="environment">
