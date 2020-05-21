@@ -4,7 +4,7 @@ import "./login.css";
 import { Form, Container, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import Reusablebutton from "../../components/reusablebutton/reusablebutton";
-import Logger from "../../components/logger/logger";
+import Logger from "../../components/logger/ogger";
 
 class Login extends React.Component {
   state = {

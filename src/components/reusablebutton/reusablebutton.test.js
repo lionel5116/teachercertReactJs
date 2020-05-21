@@ -29,13 +29,16 @@ afterEach(() => {
 
 it("renders with the type button and variant warning", () => {
 
+  /*
   act(() => {
     render(<Reusablebutton type="button" />, container);
   });
   expect(container.type).toBe("button");
-
+ */
+  
   act(() => {
     render(<Reusablebutton variant="warning" />, container);
   });
   expect(container.variant).toBe("warning");
+  
 });
