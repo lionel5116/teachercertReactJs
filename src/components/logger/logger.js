@@ -1,8 +1,8 @@
 
-const logger = (realMessage) => ( 
+const Logger = (realMessage) => ( 
   console.log(realMessage)
 )
-logger.defaultProps = {
+Logger.defaultProps = {
   myCustomMessage:"Hello World"
 };
-export default logger;
+export default Logger;

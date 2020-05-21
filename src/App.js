@@ -8,7 +8,7 @@ import NavbarMain from './components/NavbarMain/NavbarMain';
 import {Provider} from 'react-redux';
 import {store} from './store/store';
 
-import login from './container/login/login';
+import Login from './container/login/login';
 import teacher from './components/teacher/teacher';
 import HcadData from './components/hcadrecordlist/hcadrecordlist';
 
@@ -19,7 +19,7 @@ function App() {
        <div>
          <Provider store = {store}>
            <NavbarMain />
-           <Route exact path='/' component={login} />
+           <Route exact path='/' component={Login} />
            <Route exact path='/Teacher' component={teacher} />
            <Route exact path='/HcadDataList' component={HcadData} />
          </Provider>
