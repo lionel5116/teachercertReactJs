@@ -2,9 +2,11 @@ import React from 'react';
 import './reusablebutton.css';
 import {Button} from 'react-bootstrap';
 
+
+/*
 const Reusablebutton = ({
   text,
-  variant
+  variant,
 }) => {
    const someCallBackMethod = async() => { alert("hola from callback method!!!!");}
    return (
@@ -19,6 +21,19 @@ const Reusablebutton = ({
 };
 Reusablebutton.defaultProps = {
    text:"Hello World",
-   variant:"warning"
+   variant:"warning",
 };
+*/
+
+function Reusablebutton(props) {
+   return (
+      <div>
+         <Button 
+           variant={props.variant}
+           onClick={props.myclickHandler}>{props.text}</Button>
+      </div>
+   )
+}
+
+
 export default Reusablebutton;

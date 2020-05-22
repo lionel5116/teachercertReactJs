@@ -68,15 +68,13 @@ class Login extends React.Component {
             </Form.Group>
             <Form.Row>
               <Reusablebutton
-                text="Reusable"
                 variant="primary"
+                text="Reusable"
+                myclickHandler = {() =>this.proceedToTeacher('Hello My Man')}
               ></Reusablebutton>
               <Button
                 type="button"
                 variant="warning"
-                onClick={() => {
-                  this.proceedToTeacher();
-                }}
                 className="buttonMargin"
               >
                 Process
@@ -88,13 +86,16 @@ class Login extends React.Component {
     );
   }
 
+
+
   handleTextChange = async function (event) {
     let fieldName = event.target.name;
     let fleldVal = event.target.value;
     await this.setState({ [fieldName]: fleldVal });
   };
 
-  proceedToTeacher = () => {
+  proceedToTeacher = (somePassedInformation) => {
+    alert("From child " + somePassedInformation)
     Logger("this is from the method proceedToTeacher()");
     this.props.redLogin({
       userName: this.state.userName,
