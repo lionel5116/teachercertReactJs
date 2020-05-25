@@ -16,7 +16,9 @@ const NavbarMain = () => (
                 
                 <NavDropdown title="Actions" id="basic-nav-dropdown">
                     <NavDropdown.Item href="#">View Courses</NavDropdown.Item>
-                    <NavDropdown.Divider />
+                    <NavDropdown.Divider /> 
+                    <NavDropdown.Item href="/AxiosExample">Axios Example</NavDropdown.Item>
+                    <NavDropdown.Item href="/postDataAxios">Post Data Example </NavDropdown.Item>
                     <NavDropdown.Item href="/HcadDataList">HCAD Records</NavDropdown.Item>
                 </NavDropdown>
                 

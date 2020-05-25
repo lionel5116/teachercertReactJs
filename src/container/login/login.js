@@ -100,8 +100,7 @@ class Login extends React.Component {
     this.props.redLogin({
       userName: this.state.userName,
       password: this.state.password,
-      role: this.state.role,
-      environment: this.state.environment,
+      environment: this.state.environment
     });
   };
 }
@@ -113,7 +112,7 @@ const mapDispatchToProps = (dispatch) => {
         type: "LOGIN_DATA",
         userName: payload.userName,
         password: payload.password,
-        environment: payload.environment,
+        environment: payload.environment
       });
     },
   };
@@ -123,7 +122,7 @@ const mapStateToProps = (state) => {
   return {
     userName: state.userName,
     password: state.password,
-    environment: state.environment,
+    environment: state.environment
   };
 };
 

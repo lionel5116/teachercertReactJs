@@ -8,7 +8,7 @@ class HcadData extends React.Component {
   state = {
     axiosRecs: [],
     done: false
-}
+  }
 
   componentDidMount() {
           axios.get(`https://traveltrackingdb.firebaseio.com/hcadrecs.json`)
@@ -17,17 +17,16 @@ class HcadData extends React.Component {
             let lstHcadRecordData = [];
             lstHcadRecordData = res.data
            
-            //console.log(lstHcadRecordData);
             let HcadRecords = lstHcadRecordData.map(hcadRecItem =><ListGroup.Item key={uniqueid()} 
               action  onClick={() => this.selectHcadRecordItem(hcadRecItem.AcctNumb)}>
-              Acct#: {hcadRecItem.AcctNumb} <br /> 
+               Acct#: {hcadRecItem.AcctNumb} <br /> 
                Owner Name: {hcadRecItem.OwnerName}  <br /> 
                Final Value: {hcadRecItem.FinalValue } <br /> 
                LUC: {hcadRecItem.LUC} 
               </ListGroup.Item>)
 
              this.setState({
-                     hcadRecords: HcadRecords,
+                    axiosRecs: HcadRecords,
                      done: true
                     });
           });
@@ -35,7 +34,7 @@ class HcadData extends React.Component {
 
   selectHcadRecordItem=(AcctNumb) =>
   {
-
+     alert("Account Number for this record :" + AcctNumb)
   }
 
   render() {
@@ -56,7 +55,7 @@ class HcadData extends React.Component {
                   </Form.Group>
 
                   <Form.Group controlId="HcadList">
-                    <ListGroup>{this.state.hcadRecords}</ListGroup>
+                    <ListGroup>{this.state.axiosRecs}</ListGroup>
                   </Form.Group>
                 </Form>
               </Container>
