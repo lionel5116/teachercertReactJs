@@ -13,6 +13,7 @@ import teacher from './components/teacher/teacher';
 import HcadData from './components/hcadrecordlist/hcadrecordlist';
 import axiosExample from './components/axiosExample';
 import postDataAxios from './components/PostDataAxios';
+import FetchDataPureFunction from './components/FetchDataPureFunction';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
            <Route exact path='/AxiosExample' component={axiosExample} />
            <Route exact path='/HcadDataList' component={HcadData} />
            <Route exact path='/postDataAxios' component={postDataAxios} />
+           <Route exact path='/FetchDataPureFunction' component={FetchDataPureFunction} />
          </Provider>
        </div>
       </BrowserRouter>
