@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Container, Button } from "react-bootstrap";
 
+//****function names for pure components needs to have a capital letter
 function FetchDataPureFunction() {
   //const [axiosRecs, setAxiosRecords] = useState([]);  //use this when you want to render more than one item
   const [axiosRecs, setAxiosRecord] = useState({});

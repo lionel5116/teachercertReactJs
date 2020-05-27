@@ -14,6 +14,7 @@ import HcadData from './components/hcadrecordlist/hcadrecordlist';
 import axiosExample from './components/axiosExample';
 import postDataAxios from './components/PostDataAxios';
 import FetchDataPureFunction from './components/FetchDataPureFunction';
+import PureLogin from './components/PureLogin';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
            <Route exact path='/HcadDataList' component={HcadData} />
            <Route exact path='/postDataAxios' component={postDataAxios} />
            <Route exact path='/FetchDataPureFunction' component={FetchDataPureFunction} />
+           <Route exact path='/PureLogin' component={PureLogin} />
          </Provider>
        </div>
       </BrowserRouter>

@@ -21,6 +21,7 @@ const NavbarMain = () => (
                     <NavDropdown.Item href="/postDataAxios">Post Data Example </NavDropdown.Item>
                     <NavDropdown.Item href="/FetchDataPureFunction">Fetch Data - PureFunction</NavDropdown.Item>
                     <NavDropdown.Item href="/HcadDataList">HCAD Records</NavDropdown.Item>
+                    <NavDropdown.Item href="/PureLogin">Pure Login Form</NavDropdown.Item>
                 </NavDropdown>
                 
                 <Nav.Link href="#link">About Us</Nav.Link>
