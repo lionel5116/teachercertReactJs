@@ -5,8 +5,8 @@ import './App.css';
 import { BrowserRouter,Route } from 'react-router-dom'
 import NavbarMain from './components/NavbarMain/NavbarMain';
 
-import {Provider} from 'react-redux';
-import {store} from './store/store';
+//import {Provider} from 'react-redux';
+//import {store} from './store/store';
 
 import Login from './container/login/login';
 import teacher from './components/teacher/teacher';
@@ -16,12 +16,13 @@ import postDataAxios from './components/PostDataAxios';
 import FetchDataPureFunction from './components/FetchDataPureFunction';
 import PureLogin from './components/PureLogin';
 
+//I placed the REDUX store/providor information in the index.js file according to the DOCS
+
 function App() {
   return (
     <div>
       <BrowserRouter>
        <div>
-         <Provider store = {store}>
            <NavbarMain />
            <Route exact path='/' component={Login} />
            <Route exact path='/Teacher' component={teacher} />
@@ -30,7 +31,6 @@ function App() {
            <Route exact path='/postDataAxios' component={postDataAxios} />
            <Route exact path='/FetchDataPureFunction' component={FetchDataPureFunction} />
            <Route exact path='/PureLogin' component={PureLogin} />
-         </Provider>
        </div>
       </BrowserRouter>
     </div>

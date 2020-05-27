@@ -5,7 +5,7 @@ const initialState = {
 };
 
 export default function redLogin(state = initialState,action) {
-  //console.log(action.userName);
+  console.log(action.type);
   switch(action.type) {
      case 'LOGIN_DATA':
      return {

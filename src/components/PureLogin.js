@@ -2,12 +2,15 @@ import React, {useState } from 'react'
 import { connect } from "react-redux";
 import { Form, Container, Button } from "react-bootstrap";
 import GenericHeader from './GenericHeader/GenericHeader';
+import redLogin from '../reducers/redLogin';
 
 //****function names for pure components needs to have a capital letter
 function PureLogin() {
 
     //I AM USING STATE & SETSTATE AS NAME SEMANTICS (IT COULD BE CALLED ANYTHING****)
     const [myState,setState] = useState({userName:'',password:'',environment:''})
+
+    
 
     return (
         <div id="MasterContainer">
@@ -59,6 +62,7 @@ function PureLogin() {
                 type="button"
                 variant="warning"
                 className="buttonMargin"
+                onClick={() => handleLogin(myState)}
               >
                 Process
               </Button>
@@ -70,14 +74,52 @@ function PureLogin() {
     );
 }
 
+const props = {
+  userName: '',
+  password: '',
+  environment: ''
+}; 
 
-const mapStateToProps = (state) =>
+const handleLogin = (myPassedInState) =>{
+  props.userName = myPassedInState.userName;
+  props.password = myPassedInState.password;
+  props.environment = myPassedInState.environment;
+  redLogin(myPassedInState)
+}
+
+PureLogin.defaultProps = {
+  userName: '',
+  password: '',
+  environment: ''
+}; 
+
+
+
+const mapStateToProps = () =>
 {
     return {
-        userName: state.userName,
-        password: state.password,
-        environment: state.environment
+        userName: props.userName,
+        password: props.password,
+        environment: props.environment
     };
 }
 
-export default connect(mapStateToProps)(PureLogin);
+const mapDispatchToProps = dispatch => {
+  return {
+      redLogin: (payload) => {
+          console.log("Received " + payload.userName) ;
+          dispatch({type: 'LOGIN_DATA',
+                  userName: payload.userName,
+                  password: payload.password,
+                  role: payload.role,
+                  environment: payload.environment
+              });
+                  
+      }
+
+  };
+};
+
+export default connect(
+                  mapStateToProps,
+                  mapDispatchToProps)(PureLogin);
