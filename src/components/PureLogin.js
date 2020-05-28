@@ -6,11 +6,8 @@ import redLogin from '../reducers/redLogin';
 
 //****function names for pure components needs to have a capital letter
 function PureLogin() {
-
     //I AM USING STATE & SETSTATE AS NAME SEMANTICS (IT COULD BE CALLED ANYTHING****)
     const [myState,setState] = useState({userName:'',password:'',environment:''})
-
-    
 
     return (
         <div id="MasterContainer">
@@ -77,14 +74,19 @@ function PureLogin() {
 const props = {
   userName: '',
   password: '',
-  environment: ''
+  environment: '',
+  redLogin: () =>{}
 }; 
 
 const handleLogin = (myPassedInState) =>{
   props.userName = myPassedInState.userName;
   props.password = myPassedInState.password;
   props.environment = myPassedInState.environment;
-  redLogin(myPassedInState)
+  props.redLogin({
+              userName: myPassedInState.userName,
+              password: myPassedInState.password,
+              environment: myPassedInState.environment 
+            })
 }
 
 PureLogin.defaultProps = {
@@ -95,7 +97,7 @@ PureLogin.defaultProps = {
 
 
 
-const mapStateToProps = () =>
+const mapStateToProps = state =>
 {
     return {
         userName: props.userName,
@@ -111,7 +113,6 @@ const mapDispatchToProps = dispatch => {
           dispatch({type: 'LOGIN_DATA',
                   userName: payload.userName,
                   password: payload.password,
-                  role: payload.role,
                   environment: payload.environment
               });
                   
@@ -120,6 +121,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-                  mapStateToProps,
-                  mapDispatchToProps)(PureLogin);
+export default connect(mapStateToProps,mapDispatchToProps)(PureLogin);
