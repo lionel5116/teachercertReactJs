@@ -1,15 +1,20 @@
-import React from 'react';
-//import PropTypes from 'prop-types';
+import React ,{useContext} from 'react';
 import './teacher.css';
+import {LoginContext} from "../../components/PureLogin";
 
-const teacher = () => (
-  <div className="teacher">
-    teacher Component
+
+
+function Teacher() {
+  const loginContext = useContext(LoginContext)
+  return (
+   <div className="teacher">
+    {loginContext}
   </div>
-);
+) 
+}
 
-teacher.propTypes = {};
+Teacher.propTypes = {};
 
-teacher.defaultProps = {};
+Teacher.defaultProps = {};
 
-export default teacher;
+export default Teacher;

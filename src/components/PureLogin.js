@@ -2,12 +2,16 @@ import React, {useState } from 'react'
 import { connect } from "react-redux";
 import { Form, Container, Button } from "react-bootstrap";
 import GenericHeader from './GenericHeader/GenericHeader';
-import redLogin from '../reducers/redLogin';
 
-//****function names for pure components needs to have a capital letter
+
+
+export const LoginContext = React.createContext("")
+
 function PureLogin() {
     //I AM USING STATE & SETSTATE AS NAME SEMANTICS (IT COULD BE CALLED ANYTHING****)
     const [myState,setState] = useState({userName:'',password:'',environment:''})
+
+    
 
     return (
         <div id="MasterContainer">
@@ -55,17 +59,22 @@ function PureLogin() {
               />
             </Form.Group>
             <Form.Row>
-              <Button
+            <LoginContext.Provider 
+             value={myState.userName}>
+                <Button
                 type="button"
                 variant="warning"
                 className="buttonMargin"
-                onClick={() => handleLogin(myState)}
+                href="/Teacher"
               >
                 Process
               </Button>
+           </LoginContext.Provider>
+             
             </Form.Row>
           </Form>
        <h4>{JSON.stringify(myState)}</h4>
+      
         </Container>
       </div>
     );
@@ -75,18 +84,23 @@ const props = {
   userName: '',
   password: '',
   environment: '',
-  redLogin: () =>{}
+  //redLogin: () =>{}
 }; 
 
 const handleLogin = (myPassedInState) =>{
+
   props.userName = myPassedInState.userName;
   props.password = myPassedInState.password;
   props.environment = myPassedInState.environment;
+  //navigation.navigate("/Teacher");
+ 
+  /*
   props.redLogin({
               userName: myPassedInState.userName,
               password: myPassedInState.password,
               environment: myPassedInState.environment 
             })
+  */
 }
 
 PureLogin.defaultProps = {
@@ -96,7 +110,7 @@ PureLogin.defaultProps = {
 }; 
 
 
-
+/*
 const mapStateToProps = state =>
 {
     return {
@@ -120,5 +134,7 @@ const mapDispatchToProps = dispatch => {
 
   };
 };
+*/
 
-export default connect(mapStateToProps,mapDispatchToProps)(PureLogin);
+//export default connect(mapStateToProps,mapDispatchToProps)(PureLogin);
+export default PureLogin;

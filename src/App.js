@@ -15,8 +15,12 @@ import axiosExample from './components/axiosExample';
 import postDataAxios from './components/PostDataAxios';
 import FetchDataPureFunction from './components/FetchDataPureFunction';
 import PureLogin from './components/PureLogin';
+import Teacher from './components/teacher/teacher';
+
 
 //I placed the REDUX store/providor information in the index.js file according to the DOCS
+
+
 
 function App() {
   return (
@@ -31,6 +35,7 @@ function App() {
            <Route exact path='/postDataAxios' component={postDataAxios} />
            <Route exact path='/FetchDataPureFunction' component={FetchDataPureFunction} />
            <Route exact path='/PureLogin' component={PureLogin} />
+           <Route exact path='/Teacher' component={Teacher} />
        </div>
       </BrowserRouter>
     </div>
