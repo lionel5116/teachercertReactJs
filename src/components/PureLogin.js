@@ -1,7 +1,8 @@
-import React, {useState } from 'react'
+import React, {useState,useReducer } from 'react'
 import { connect } from "react-redux";
 import { Form, Container, Button } from "react-bootstrap";
 import GenericHeader from './GenericHeader/GenericHeader';
+import redLogin from '../reducers/redLogin';
 
 
 
@@ -11,7 +12,7 @@ function PureLogin() {
     //I AM USING STATE & SETSTATE AS NAME SEMANTICS (IT COULD BE CALLED ANYTHING****)
     const [myState,setState] = useState({userName:'',password:'',environment:''})
 
-    
+     const [myNewState,dispatch] = useReducer(redLogin,myState)
 
     return (
         <div id="MasterContainer">
@@ -65,7 +66,13 @@ function PureLogin() {
                 type="button"
                 variant="warning"
                 className="buttonMargin"
-                href="/Teacher"
+                //href="/Teacher"
+                onClick={() => dispatch({
+                                        type:'LOGIN_DATA',
+                                        environment:myState.environment,
+                                        userName:myState.userName,
+                                        password:myState.password
+                                        })}
               >
                 Process
               </Button>
@@ -73,7 +80,7 @@ function PureLogin() {
              
             </Form.Row>
           </Form>
-       <h4>{JSON.stringify(myState)}</h4>
+         <h4>State from Reducer Function-Use State{JSON.stringify(myNewState)}</h4>
       
         </Container>
       </div>

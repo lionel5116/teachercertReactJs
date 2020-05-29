@@ -6,6 +6,7 @@ const initialState = {
 
 export default function redLogin(state = initialState,action) {
   console.log(action.type);
+  console.log(action.environment);
   switch(action.type) {
      case 'LOGIN_DATA':
      return {
