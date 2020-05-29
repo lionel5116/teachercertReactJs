@@ -91,7 +91,6 @@ const props = {
   userName: '',
   password: '',
   environment: '',
-  //redLogin: () =>{}
 }; 
 
 const handleLogin = (myPassedInState) =>{
