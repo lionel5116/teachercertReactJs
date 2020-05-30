@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import { create } from "react-test-renderer";
 import Reusablebutton from './reusablebutton';
 
 it('It should mount', () => {
@@ -9,6 +9,11 @@ it('It should mount', () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 
-
-
+//npm install --save-dev react-test-renderer
+describe("Button component", () => {
+  test("Matches the snapshot", () => {
+    const button = create(<Reusablebutton />);
+    expect(button.toJSON()).toMatchSnapshot();
+  });
+});
 
