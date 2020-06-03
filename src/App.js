@@ -9,7 +9,6 @@ import NavbarMain from './components/NavbarMain/NavbarMain';
 //import {store} from './store/store';
 
 import Login from './container/login/login';
-import teacher from './components/teacher/teacher';
 import HcadData from './components/hcadrecordlist/hcadrecordlist';
 import axiosExample from './components/axiosExample';
 import postDataAxios from './components/PostDataAxios';
@@ -29,7 +28,6 @@ function App() {
        <div>
            <NavbarMain />
            <Route exact path='/' component={Login} />
-           <Route exact path='/Teacher' component={teacher} />
            <Route exact path='/AxiosExample' component={axiosExample} />
            <Route exact path='/HcadDataList' component={HcadData} />
            <Route exact path='/postDataAxios' component={postDataAxios} />

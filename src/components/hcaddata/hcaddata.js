@@ -10,6 +10,7 @@ class HcadData extends React.Component {
     done: false
   }
 
+  //this is using my ljonesalesforce.com firebase database (Realtime Database)
   componentDidMount() {
           axios.get(`https://traveltrackingdb.firebaseio.com/hcadrecs.json`)
           .then(res => {

@@ -4,7 +4,7 @@ import "./login.css";
 import { Form, Container, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import Reusablebutton from "../../components/reusablebutton/reusablebutton";
-import Logger from "../../components/logger/logger";
+//import Logger from "../../components/logger/logger";
 import GenericHeader from "../../components/GenericHeader/GenericHeader";
 
 
@@ -70,7 +70,7 @@ class Login extends React.Component {
             <Form.Row>
               <Reusablebutton
                 variant="primary"
-                text="Reusable"
+                text="Login"
                 myclickHandler = {() =>this.proceedToTeacher('Hello My Man')}
               ></Reusablebutton>
               <Button
@@ -96,14 +96,18 @@ class Login extends React.Component {
   };
 
   proceedToTeacher = (somePassedInformation) => {
-    alert("From child " + somePassedInformation)
-    Logger("this is from the method proceedToTeacher()");
+    //alert("From child " + somePassedInformation)
+    //Logger("this is from the method proceedToTeacher()");
     this.props.redLogin({
       userName: this.state.userName,
       password: this.state.password,
       environment: this.state.environment
     });
+
+    this.props.history.push("/Teacher");
   };
+
+  
 }
 
 const mapDispatchToProps = (dispatch) => {

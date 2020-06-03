@@ -67,12 +67,15 @@ function PureLogin() {
                 variant="warning"
                 className="buttonMargin"
                 //href="/Teacher"
-                onClick={() => dispatch({
+                onClick={() => {dispatch({
                                         type:'LOGIN_DATA',
                                         environment:myState.environment,
                                         userName:myState.userName,
                                         password:myState.password
-                                        })}
+                                        });
+                                        handleLogin(handleLogin);}
+                                      
+                          }
               >
                 Process
               </Button>
@@ -95,18 +98,13 @@ const props = {
 
 const handleLogin = (myPassedInState) =>{
 
+  console.log("we are here....")
   props.userName = myPassedInState.userName;
   props.password = myPassedInState.password;
   props.environment = myPassedInState.environment;
   //navigation.navigate("/Teacher");
  
-  /*
-  props.redLogin({
-              userName: myPassedInState.userName,
-              password: myPassedInState.password,
-              environment: myPassedInState.environment 
-            })
-  */
+ 
 }
 
 PureLogin.defaultProps = {
@@ -116,7 +114,7 @@ PureLogin.defaultProps = {
 }; 
 
 
-/*
+
 const mapStateToProps = state =>
 {
     return {
@@ -126,6 +124,8 @@ const mapStateToProps = state =>
     };
 }
 
+
+/*
 const mapDispatchToProps = dispatch => {
   return {
       redLogin: (payload) => {
@@ -142,5 +142,5 @@ const mapDispatchToProps = dispatch => {
 };
 */
 
-//export default connect(mapStateToProps,mapDispatchToProps)(PureLogin);
-export default PureLogin;
+export default connect(mapStateToProps)(PureLogin);
+
