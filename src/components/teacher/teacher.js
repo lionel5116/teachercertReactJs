@@ -23,7 +23,7 @@ function Teacher() {
 
   const userNameInput = useRef();
   const stateData = store.getState();
-  const isLoggedIn = stateData.redLogin.userName ==='' ? true : false;
+  const isLoggedIn = stateData.redLogin.userName !=='' ? true : false;
 
   useEffect(() => {
     console.log(" {Teacher} The login name.. " + stateData.redLogin.userName);
@@ -34,7 +34,7 @@ function Teacher() {
 
   return (
     <div>
-      State of UserName = Null: {isLoggedIn.toString()}
+      State of logged in: {isLoggedIn.toString()}
     <Container>
       <Form>
         
@@ -194,10 +194,10 @@ function Teacher() {
           />
         </Form.Group>
 
-        <Form.Group disabled={true}>
+        <Form.Group>
           <AppButtonSet
            writeRecordAction = {() => writeTeacherRecord(myState)} 
-           access={isLoggedIn}/>
+           access={!isLoggedIn}/>
         </Form.Group>
       
       </Form>
