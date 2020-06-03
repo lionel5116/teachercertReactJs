@@ -14,6 +14,7 @@ function AppButtonSet(props) {
              variant="warning"
              onClick={props.writeRecordAction}
              style={mystyles.buttonPadLeft}
+             disabled={props.access}
            >
             Submit
            </Button> 

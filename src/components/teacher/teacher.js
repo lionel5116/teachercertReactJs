@@ -23,15 +23,18 @@ function Teacher() {
 
   const userNameInput = useRef();
   const stateData = store.getState();
+  const isLoggedIn = stateData.redLogin.userName ==='' ? true : false;
 
   useEffect(() => {
     console.log(" {Teacher} The login name.. " + stateData.redLogin.userName);
     userNameInput.current.focus();
-    setState( {userName: stateData.redLogin.userName })
+    setState( {userName: stateData.redLogin.userName })  //do not use: setState({ ...myState, userName: stateData.redLogin.userName})}/ it will cause an infinite loop*
   },[stateData.redLogin.userName]);   //if this parameter was not included, I would not be able to go to other fields
-                                    
+     
+
   return (
     <div>
+      State of UserName = Null: {isLoggedIn.toString()}
     <Container>
       <Form>
         
@@ -191,9 +194,10 @@ function Teacher() {
           />
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group disabled={true}>
           <AppButtonSet
-           writeRecordAction = {() => writeTeacherRecord(myState)} />
+           writeRecordAction = {() => writeTeacherRecord(myState)} 
+           access={isLoggedIn}/>
         </Form.Group>
       
       </Form>
@@ -202,16 +206,11 @@ function Teacher() {
   ); 
 }
 
-/*
-const writeTeacherRecord = (teacherRecord) => {
-  //alert("hello world")
-  console.log(teacherRecord)
-}
-*/
+
 
 const writeTeacherRecord = async (teacherRecord) => {
   console.log(teacherRecord)
- /*
+  return;  //will come back to this whe I want to write some more records
   axios
     .post(`https://traveltrackingdb.firebaseio.com/teacherRecords.json`, teacherRecord)
     .then((res) => {
@@ -220,7 +219,7 @@ const writeTeacherRecord = async (teacherRecord) => {
     .catch((error) => {
       console.log(error);
     });
-    */
+    
 };
 
 
