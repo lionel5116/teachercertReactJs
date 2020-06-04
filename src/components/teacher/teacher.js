@@ -5,20 +5,24 @@ import GenericHeader from '../GenericHeader/GenericHeader';
 import AppButtonSet from '../AppButtonSet';
 import {store} from '../../store/store';
 import axios from "axios";
+import FetchDataTeacher from '../FetchDataTeacher';
 
 
 function Teacher() {
+  const initialState = {
+                        userName:'',
+                        firstNane:'',
+                        lastName:'',
+                        certifID:'',
+                        certDate:'',
+                        gradeLevel:'',
+                        subject:'',
+                        classRoomCount:'',
+                        billingual:'',
+                        Notes:'',
+                      }
   const [myState,setState] = useState({
-                                       userName:'',
-                                       firstNane:'',
-                                       lastName:'',
-                                       certifID:'',
-                                       certDate:'',
-                                       gradeLevel:'',
-                                       subject:'',
-                                       classRoomCount:'',
-                                       billingual:'',
-                                       Notes:'',
+                                          initialState
                                       })
 
   const userNameInput = useRef();
@@ -202,6 +206,8 @@ function Teacher() {
       
       </Form>
     </Container>
+    <hr />
+    <FetchDataTeacher />
     </div>
   ); 
 }
@@ -209,7 +215,8 @@ function Teacher() {
 
 
 const writeTeacherRecord = async (teacherRecord) => {
-  console.log(teacherRecord)
+  //console.log(teacherRecord)
+  //return;
   axios
     .post(`https://traveltrackingdb.firebaseio.com/teacherRecords.json`, teacherRecord)
     .then((res) => {
