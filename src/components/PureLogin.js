@@ -73,7 +73,7 @@ function PureLogin() {
                                         userName:myState.userName,
                                         password:myState.password
                                         });
-                                        handleLogin(handleLogin);}
+                                        handleLogin(myNewState);}
                                       
                           }
               >
@@ -98,10 +98,12 @@ const props = {
 
 const handleLogin = (myPassedInState) =>{
 
-  console.log("we are here....")
+  console.log("we are here...." +  myPassedInState.userName)
+  
   props.userName = myPassedInState.userName;
   props.password = myPassedInState.password;
   props.environment = myPassedInState.environment;
+  console.log("User Name passed to handleLogin:" + myPassedInState.userName);
   //navigation.navigate("/Teacher");
  
  
