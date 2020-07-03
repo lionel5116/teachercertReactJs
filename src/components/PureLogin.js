@@ -1,8 +1,9 @@
 import React, {useState,useReducer } from 'react'
-import { connect } from "react-redux";
+import { connect,useSelector } from "react-redux";
 import { Form, Container, Button } from "react-bootstrap";
 import GenericHeader from './GenericHeader/GenericHeader';
 import redLogin from '../reducers/redLogin';
+
 
 
 
@@ -11,8 +12,8 @@ export const LoginContext = React.createContext("")
 function PureLogin() {
     //I AM USING STATE & SETSTATE AS NAME SEMANTICS (IT COULD BE CALLED ANYTHING****)
     const [myState,setState] = useState({userName:'',password:'',environment:''})
-
-     const [myNewState,dispatch] = useReducer(redLogin,myState)
+    const [myNewState,dispatch] = useReducer(redLogin,myState)
+    const redLoginState = useSelector(state => state.redLogin)
 
     return (
         <div id="MasterContainer">
@@ -73,7 +74,8 @@ function PureLogin() {
                                         userName:myState.userName,
                                         password:myState.password
                                         });
-                                        handleLogin(myNewState);}
+                                        handleLogin(myState);
+                                        console.log("UserName: " + myState.userName);}
                                       
                           }
               >
@@ -97,16 +99,8 @@ const props = {
 }; 
 
 const handleLogin = (myPassedInState) =>{
-
-  console.log("we are here...." +  myPassedInState.userName)
   
-  props.userName = myPassedInState.userName;
-  props.password = myPassedInState.password;
-  props.environment = myPassedInState.environment;
-  console.log("User Name passed to handleLogin:" + myPassedInState.userName);
-  //navigation.navigate("/Teacher");
- 
- 
+  console.log("Environment: " + myPassedInState.environment);
 }
 
 PureLogin.defaultProps = {
