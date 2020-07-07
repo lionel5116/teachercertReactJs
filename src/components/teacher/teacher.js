@@ -215,8 +215,6 @@ function Teacher() {
 
 
 const writeTeacherRecord = async (teacherRecord) => {
-  //console.log(teacherRecord)
-  //return;
   axios
     .post(`https://traveltrackingdb.firebaseio.com/teacherRecords.json`, teacherRecord)
     .then((res) => {

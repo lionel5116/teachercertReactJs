@@ -96,39 +96,20 @@ class Login extends React.Component {
   };
 
   proceedToTeacher = (somePassedInformation) => {
-    //alert("From child " + somePassedInformation)
-    //Logger("this is from the method proceedToTeacher()");
-    this.props.redLogin({
-      userName: this.state.userName,
-      password: this.state.password,
-      environment: this.state.environment
-    });
-
+   this.props.dispatch({
+    type: "LOGIN_DATA",
+    userName: this.state.userName,
+    password: this.state.password,
+    environment: this.state.environment
+  })
+    
     this.props.history.push("/Teacher");
   };
 
   
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    redLogin: (payload) => {
-      dispatch({
-        type: "LOGIN_DATA",
-        userName: payload.userName,
-        password: payload.password,
-        environment: payload.environment
-      });
-    },
-  };
-};
 
-const mapStateToProps = (state) => {
-  return {
-    userName: state.userName,
-    password: state.password,
-    environment: state.environment
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+//THIS IS HOC, YOU ARE WRAPPING YOUR COMPONENT WITH REDUX, THE CONNECT
+//ALLOWS THIS COMPONENT TO INHERIT PROPERTIES FROM THE REDUX STORE
+export default connect(null,null)(Login);
