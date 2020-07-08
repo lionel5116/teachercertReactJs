@@ -77,6 +77,7 @@ class Login extends React.Component {
                 type="button"
                 variant="warning"
                 className="buttonMargin"
+                onClick={() =>this.showLoginDetailsScreen()}
               >
                 Process
               </Button>
@@ -102,12 +103,24 @@ class Login extends React.Component {
     password: this.state.password,
     environment: this.state.environment
   })
-    
+
+ 
     this.props.history.push("/Teacher");
   };
 
+  showLoginDetailsScreen = () => {
+    this.props.dispatch({
+      type: "LOGIN_DATA",
+      userName: this.state.userName,
+      password: this.state.password,
+      environment: this.state.environment
+    })
+    this.props.history.push("/LoginDetails");
+  }
+    
   
 }
+
 
 
 //THIS IS HOC, YOU ARE WRAPPING YOUR COMPONENT WITH REDUX, THE CONNECT

@@ -8,6 +8,13 @@
     "withStyle": true,
     "withTest": true,
     "withStory": false,
-    "withLazy": false
+    "withLazy": false,
+    "default": {
+      "path": "src/components",
+      "withStyle": false,
+      "withTest": false,
+      "withStory": false,
+      "withLazy": false
+    }
   }
 }

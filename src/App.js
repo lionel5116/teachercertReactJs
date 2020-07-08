@@ -15,6 +15,7 @@ import postDataAxios from './components/PostDataAxios';
 import FetchDataPureFunction from './components/FetchDataPureFunction';
 import PureLogin from './components/PureLogin';
 import Teacher from './components/teacher/teacher';
+import LoginDetails from './components/logindetails/logindetails';
 
 
 //I placed the REDUX store/providor information in the index.js file according to the DOCS
@@ -28,6 +29,7 @@ function App() {
        <div>
            <NavbarMain />
            <Route exact path='/' component={Login} />
+           <Route exact path='/LoginDetails' component={LoginDetails} />
            <Route exact path='/AxiosExample' component={axiosExample} />
            <Route exact path='/HcadDataList' component={HcadData} />
            <Route exact path='/postDataAxios' component={postDataAxios} />
