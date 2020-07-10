@@ -16,6 +16,7 @@ import FetchDataPureFunction from './components/FetchDataPureFunction';
 import PureLogin from './components/PureLogin';
 import Teacher from './components/teacher/teacher';
 import LoginDetails from './components/logindetails/logindetails';
+import BootstrapTableExample from './components/bootstrapTableExample';
 
 
 //I placed the REDUX store/providor information in the index.js file according to the DOCS
@@ -36,6 +37,7 @@ function App() {
            <Route exact path='/FetchDataPureFunction' component={FetchDataPureFunction} />
            <Route exact path='/PureLogin' component={PureLogin} />
            <Route exact path='/Teacher' component={Teacher} />
+           <Route exact path='/BootstrapTableExample' component={BootstrapTableExample} />
        </div>
       </BrowserRouter>
     </div>

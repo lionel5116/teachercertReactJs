@@ -79,7 +79,15 @@ class Login extends React.Component {
                 className="buttonMargin"
                 onClick={() =>this.showLoginDetailsScreen()}
               >
-                Process
+                Test HOC/Redux
+              </Button>
+                <Button
+                type="button"
+                variant="primary"
+                className="buttonMargin"
+                onClick={() =>this.goToBootStrapScreen()}
+              >
+                Bootstrap Table
               </Button>
             </Form.Row>
           </Form>
@@ -118,6 +126,10 @@ class Login extends React.Component {
     this.props.history.push("/LoginDetails");
   }
     
+  goToBootStrapScreen =() =>
+  {
+    this.props.history.push("/BootstrapTableExample");
+  }
   
 }
 
