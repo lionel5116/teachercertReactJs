@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { createRef,Component } from "react";
 import { Container } from "react-bootstrap";
 import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
 import {BootstrapTable,TableHeaderColumn,Grid,Row,Col} from "react-bootstrap-table";
@@ -15,20 +15,46 @@ var products = [
     price: 125,
   },
 ];
+
 export class BootstrapTableExample extends Component {
+    constructor(props) {
+        super(props);
+        this.wrapper = React.createRef();
+        this.state = {
+            name: '',
+            price: 0
+        };
+    }
+
+
+    CustomInputFormatterProductPrice(cell, row){
+        return (
+          <div>
+            <input type={'text'} className="form-control custom-textbox" defaultValue={cell} 
+            onChange={(e) => this.onChangeProductPrice(row, e)}
+            />
+          </div>
+        );
+    }
+
+    onChangeProductPrice(e, row) {
+       
+        this.setState({ name: row.target.value });
+        console.log(this.state.name)
+        
+    }
+
+    wrapper = createRef();
+
   render() {
     return (
       <Container>
-        <div>
+        <div ref={this.wrapper}>
           <h2>Boot Strap Table Example</h2>
-          <BootstrapTable data={products} striped hover>
-            <TableHeaderColumn isKey dataField="id">
-              Product ID
-            </TableHeaderColumn>
-            <TableHeaderColumn dataField="name">Product Name</TableHeaderColumn>
-            <TableHeaderColumn dataField="price">
-              Product Price
-            </TableHeaderColumn>
+          <BootstrapTable data={products} striped hover  >
+            <TableHeaderColumn row="1" width="10%" editable={false} isKey dataField="id" >Product ID</TableHeaderColumn>
+            <TableHeaderColumn row="1" width="45%" dataField="name" dataFormat={this.CustomInputFormatterProductPrice.bind(this)}>Product Name</TableHeaderColumn>
+            <TableHeaderColumn row="1" width="45%"dataField="price" >Product Price</TableHeaderColumn>
           </BootstrapTable>
         </div>
       </Container>
