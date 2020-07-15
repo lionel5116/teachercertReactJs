@@ -87,7 +87,15 @@ class Login extends React.Component {
                 className="buttonMargin"
                 onClick={() =>this.goToBootStrapScreen()}
               >
-                Bootstrap Table
+                BT
+              </Button>
+              <Button
+                type="button"
+                variant="primary"
+                className="buttonMargin"
+                onClick={() =>this.goToBarchart()}
+              >
+                Chart
               </Button>
             </Form.Row>
           </Form>
@@ -129,6 +137,11 @@ class Login extends React.Component {
   goToBootStrapScreen =() =>
   {
     this.props.history.push("/BootstrapTableExample");
+  }
+
+  goToBarchart =() =>
+  {
+    this.props.history.push("/BarchartExample");
   }
   
 }
