@@ -101,6 +101,7 @@ const props = {
 const handleLogin = (myPassedInState) =>{
   
   console.log("Environment: " + myPassedInState.environment);
+  document.location = "/Teacher";
 }
 
 PureLogin.defaultProps = {
