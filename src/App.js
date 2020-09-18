@@ -19,11 +19,6 @@ import LoginDetails from './components/logindetails/logindetails';
 import BootstrapTableExample from './components/bootstrapTableExample';
 import BarchartExample from './components/BarchartExample';
 
-
-//I placed the REDUX store/providor information in the index.js file according to the DOCS
-
-
-
 function App() {
   return (
     <div>
